@@ -69,11 +69,12 @@ Decisions autosave via browser storage:
 </details>
 
 <details>
-  <summary><strong>Install (Optional, “Feels Like an App”)</strong></summary>
+  <summary><strong>Running</strong></summary>
 
-You can run this directly as an HTML file.
+### Local options
+#### You can run this directly as an HTML file.
 
-For installable “app mode” (recommended):
+#### For installable “app mode” (recommended):
 
 1. Start a local server in the folder containing `qc_reports.html`:
    ```
@@ -90,6 +91,66 @@ For installable “app mode” (recommended):
    * `…` → **Apps** → **Install this site as an app**
 
 This creates a standalone desktop launcher.
+
+### Run on Sherlock
+Good. Clean documentation prevents future-you from swearing at past-you.
+
+Here’s a concise README section you can drop in:
+
+---
+
+## Running on Sherlock (Stanford HPC)
+
+This QC tool is a static HTML application. To preview it on Sherlock, you must serve it via a local web server.
+
+#### Using SSH Tunnel (Recommended)
+
+1. SSH into Sherlock:
+
+```bash
+ssh <SUNetID>@sherlock.stanford.edu
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd /path/to/MRI_html_report_QC
+```
+
+3. Start a lightweight HTTP server:
+
+```bash
+python3 -m http.server 8000
+```
+
+4. On your local machine, open a second terminal and create a tunnel:
+
+```bash
+ssh -N -L 8000:localhost:8000 <SUNetID>@sherlock.stanford.edu
+```
+
+5. Open your browser:
+
+```
+http://localhost:8000
+```
+
+The QC interface should now render normally.
+
+---
+
+#### Using Open OnDemand (No Manual Port Forwarding)
+
+1. Launch an interactive session via Sherlock Open OnDemand.
+2. Navigate to the project directory.
+3. Run:
+
+```bash
+python3 -m http.server 8000
+```
+
+4. Use the OOD interface to open the forwarded port in your browser.
+
 
 </details>
 
