@@ -1,4 +1,7 @@
 # LOCAL MRI REPORT(.html) QC
+<p align="center">
+  <img src="assets/header.png" alt="MRI HTML QC Tool" width="700">
+</p>
 
 # 🧠 Local MRI QC — A Lightweight fMRIPrep Report Review Tool
 
@@ -38,6 +41,13 @@ All running **100% locally** in your browser.
 - Select a folder containing HTML reports
 - Lists **first-level** `.html` files for clean navigation
 - Loads assets recursively so reports render correctly
+- Local folder directory structure example:
+<pre>
+.
+├── sub-STUDYs0*
+│   └── figures   # Contains assets to generate the .html report
+└── sub-STUDYs0*.html   # Report; what will be loaded in this program for QC.
+</pre>
 
 ### 🧭 Fast Navigation
 - Keyboard navigation (`↑ ↓`)
@@ -66,6 +76,10 @@ Decisions autosave via browser storage:
 ### 📊 CSV Preview + 📤 Export
 - In-app table preview (filter + search + jump-to-report)
 - Export CSV with timestamp, filename/path, tag, notes
+<p align="center">
+  <img src="assets/csv_preview.png" alt="MRI HTML QC Tool" width="700">
+</p>
+
 </details>
 
 <details>
