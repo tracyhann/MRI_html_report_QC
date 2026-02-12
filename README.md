@@ -92,15 +92,7 @@ Decisions autosave via browser storage:
 
 This creates a standalone desktop launcher.
 
-### Run on Sherlock
-Good. Clean documentation prevents future-you from swearing at past-you.
-
-Here’s a concise README section you can drop in:
-
----
-
-## Running on Sherlock (Stanford HPC)
-
+### Run on Sherlock (or other servers)
 This QC tool is a static HTML application. To preview it on Sherlock, you must serve it via a local web server.
 
 #### Using SSH Tunnel (Recommended)
