@@ -4,143 +4,97 @@
 
 A fast, local, installable QC cockpit for reviewing and annotating HTML reports (e.g., fMRIPrep outputs).
 
-Designed for researchers who need to move quickly through large batches of reports, compare sessions side-by-side, and keep structured QC records — without spinning up servers or uploading sensitive data.
+Built for high-throughput QC: compare sessions, tag outcomes, take notes, and export structured logs — all **locally**.
 
 ---
 
-## Why This Exists
-
-Manual QC of neuroimaging reports is repetitive and cognitively expensive.
-
-This tool turns report review into a structured, keyboard-driven workflow with:
-
-* Persistent tagging
-* Structured logging
-* Side-by-side comparison
-* Search and filtering
-* Instant CSV export
-
-All running **100% locally in your browser**.
-
-No backend. No uploads. No PHI leaving your machine.
+## TL;DR
+- 📂 Load local folders of HTML reports (first-level `.html`, assets supported)
+- 🪟 Compare up to 3 reports side-by-side
+- 🏷 Tag: Accept / Uncertain / Reject + 📝 notes
+- 💾 Persistent memory (autosave via browser storage)
+- 📊 Preview decisions as a table; 📤 export CSV anytime
+- 🔒 No uploads, no server, no data leaving your machine
 
 ---
 
-## Core Features
+<details>
+  <summary><strong>Why This Exists</strong></summary>
+
+Manual QC is repetitive and cognitively expensive. This tool turns report review into a structured, keyboard-driven workflow with:
+
+- persistent tagging
+- searchable notes
+- side-by-side comparisons
+- exportable QC logs
+
+All running **100% locally** in your browser.
+</details>
+
+<details>
+  <summary><strong>Core Features</strong></summary>
 
 ### 📂 Local Folder Loading
-
-* Select a folder containing HTML reports.
-* Lists first-level `.html` files for clean navigation.
-* Loads report assets recursively to ensure correct rendering.
+- Select a folder containing HTML reports
+- Lists **first-level** `.html` files for clean navigation
+- Loads assets recursively so reports render correctly
 
 ### 🧭 Fast Navigation
-
-* Keyboard navigation (`↑ ↓`)
-* `Enter` to open
-* `Shift + Enter` to compare
-* Quick tag keys (`1`, `2`, `3`)
-* Instant search filtering
+- Keyboard navigation (`↑ ↓`)
+- `Enter` to open
+- `Shift + Enter` to compare
+- Quick tag keys (`1`, `2`, `3`)
+- Instant search filtering
 
 ### 🪟 Side-by-Side Comparison
+- View up to **three** reports simultaneously
+- Great for across-session/run comparisons and pipeline/version diffs
 
-* View up to three reports simultaneously.
-* Ideal for:
+### 🏷 Structured Tagging + 📝 Notes
+Per report:
+- **Accept**
+- **Uncertain**
+- **Reject**
+- Free-text notes (autosaved + searchable)
 
-  * Across-session comparisons
-  * Run-level differences
-  * Pre/post contrasts
-  * Version comparison
+### 💾 Persistent Memory
+Decisions autosave via browser storage:
+- survives refresh
+- survives closing/reopening
+- no manual save step
 
-### 🏷 Structured Tagging
+### 📊 CSV Preview + 📤 Export
+- In-app table preview (filter + search + jump-to-report)
+- Export CSV with timestamp, filename/path, tag, notes
+</details>
 
-Each report can be labeled as:
+<details>
+  <summary><strong>Install (Optional, “Feels Like an App”)</strong></summary>
 
-* **Accept**
-* **Uncertain**
-* **Reject**
+You can run this directly as an HTML file.
 
-Tags are visually encoded and immediately reflected in:
+For installable “app mode” (recommended):
 
-* Sidebar badges
-* Comparison headers
-* CSV preview
-
-### 📝 Notes Per Report
-
-* Add detailed free-text notes.
-* Notes are autosaved.
-* Supports searchable annotations.
-
-### 💾 Persistent Memory (LocalStorage)
-
-Your decisions are automatically saved in browser storage:
-
-* Survive refresh
-* Survive closing/reopening
-* No manual save required
-
-This creates continuity across QC sessions without needing a database.
-
-### 📊 CSV Preview Panel
-
-* Live preview of structured QC table
-* Filter by tag
-* Search by filename or notes
-* Click a row to jump directly to that report
-* Export-ready formatting
-
-### 📤 Structured Logging
-
-Export decisions as CSV including:
-
-* Timestamp
-* Relative path
-* Filename
-* Tag
-* Notes
-
-Enables:
-
-* Lab documentation
-* QC audit trails
-* Pipeline integration
-* Downstream tracking
-
-### 🔒 Privacy-Preserving
-
-* No uploads
-* No cloud storage
-* No data transmission
-* Runs entirely on `localhost`
-
----
-
-## Installation (Optional but Recommended)
-
-You can run it directly as an HTML file.
-
-For a more “app-like” experience:
-
-1. Run a local server:
-
-   ```bash
-   python3 -m http.server 8000
+1. Start a local server in the folder containing `qc_reports.html`:
    ```
+   bash python3 -m http.server 8000
+   ```
+
 2. Open:
 
    ```
    http://localhost:8000/qc_reports.html
    ```
-3. In Edge or Chrome:
+3. In Edge/Chrome:
 
-   * `…` → Apps → Install this site as an app
+   * `…` → **Apps** → **Install this site as an app**
 
 This creates a standalone desktop launcher.
 
----
+</details>
 
-## Keyboard Shortcuts
+<details>
+  <summary><strong>Keyboard Shortcuts</strong></summary>
 
 | Key           | Action               |
 | ------------- | -------------------- |
@@ -152,75 +106,66 @@ This creates a standalone desktop launcher.
 | 2             | Uncertain            |
 | 3             | Reject               |
 
----
+</details>
 
-## Use Cases
+<details>
+  <summary><strong>Use Cases</strong></summary>
 
 * fMRIPrep QC across subjects
 * Multi-session longitudinal studies
 * Pre/post intervention review
-* Version comparison (pipeline updates)
-* Manual quality audits
-* Teaching trainees how to read reports
-* Creating structured QC logs for publications
+* Version comparison after pipeline updates
+* Manual QC audits with structured logging
+* Training new lab members on report review
 
----
+</details>
 
-## Design Philosophy
+<details>
+  <summary><strong>Privacy & Data Policy</strong></summary>
 
-This tool embraces three principles:
+* No uploads
+* No telemetry
+* No cloud sync
+* Runs locally (`localhost`) and reads files only after you pick a folder
 
-1. **Speed reduces cognitive fatigue**
-2. **Structure reduces ambiguity**
-3. **Local tools protect data integrity**
+**Nothing leaves your machine.**
 
-It is intentionally minimal.
-It does not attempt to replace your pipeline.
-It augments your judgment with structure.
+</details>
 
----
+<details>
+  <summary><strong>Technical Notes</strong></summary>
 
-## Technical Notes
-
-* Pure HTML/CSS/JavaScript
-* No framework dependencies
+* Pure HTML/CSS/JavaScript (no framework dependencies)
 * Uses File System Access API when available
 * Falls back to `webkitdirectory` for compatibility
 * Uses localStorage for persistence
-* Optional Service Worker for installable PWA behavior
+* Optional PWA support (manifest + service worker) for installable mode
 
----
+</details>
 
-## Limitations
+<details>
+  <summary><strong>Limitations</strong></summary>
 
-* Must be served from `http://localhost` for installable mode.
-* Does not modify reports.
-* Does not automatically recurse nested HTML unless configured.
-* LocalStorage is browser-profile specific.
+* Installable mode requires `http://localhost` (not `file://`)
+* Does not modify reports
+* localStorage is browser-profile specific
+* Some exotic asset-linking patterns may need extra rewriting logic
 
----
+</details>
 
-## Future Extensions (Ideas)
+<details>
+  <summary><strong>Future Extensions</strong></summary>
 
-* Subject/session grouping
-* QC dashboard summary
+* Subject/session grouping + dashboard summary
 * “Jump to next untagged”
 * Batch tagging
-* Auto-detection of motion metrics
-* SQLite logging backend (Electron version)
-* Multi-user lab version
+* Electron/Tauri version for direct on-disk CSV writing
+* Multi-user/shared QC logs
+
+</details>
 
 ---
 
-## Why This Matters
+> “The first principle is that you must not fool yourself — and you are the easiest person to fool.” — Richard Feynman
 
-Quality control is not glamorous.
-But it determines the validity of everything downstream.
 
-This tool turns QC from a scattered activity into a reproducible, logged, inspectable workflow.
-
-As Richard Feynman put it:
-
-> “The first principle is that you must not fool yourself — and you are the easiest person to fool.”
-
-Structured QC is how we reduce that risk.
